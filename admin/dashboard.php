@@ -64,7 +64,7 @@ $recentSubmissions = $recentStmt->fetchAll();
               <i class="bi bi-list-ul fs-3 text-success"></i>
             </div>
             <div>
-              <a href="certificates/submissions.php" class="text-decoration-none">
+              <a href="certificates/submissions" class="text-decoration-none">
                 <div class="fs-5 fw-bold text-success">View Submissions</div>
                 <div class="text-muted small">Manage all form submissions</div>
               </a>
@@ -77,7 +77,7 @@ $recentSubmissions = $recentStmt->fetchAll();
     <!-- Quick links -->
     <div class="row g-3 mb-4">
       <div class="col-md-6">
-        <a href="certificates/submissions.php" class="card border-0 shadow-sm text-decoration-none text-dark hover-card">
+        <a href="certificates/submissions" class="card border-0 shadow-sm text-decoration-none text-dark hover-card">
           <div class="card-body d-flex align-items-center gap-3">
             <i class="bi bi-list-ul fs-4 text-primary"></i>
             <div>
@@ -106,7 +106,7 @@ $recentSubmissions = $recentStmt->fetchAll();
     <div class="card border-0 shadow-sm">
       <div class="card-header bg-white border-0 py-3 d-flex justify-content-between align-items-center">
         <h6 class="mb-0 fw-bold"><i class="bi bi-clock-history me-2 text-primary"></i>Recent Submissions</h6>
-        <a href="certificates/submissions.php" class="btn btn-sm btn-outline-primary">View All</a>
+        <a href="certificates/submissions" class="btn btn-sm btn-outline-primary">View All</a>
       </div>
       <div class="card-body p-0">
         <div class="table-responsive">

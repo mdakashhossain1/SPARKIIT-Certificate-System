@@ -9,13 +9,13 @@ require_once dirname(__DIR__, 2) . '/includes/cert_pdf_generator.php';
 requireAdmin();
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('Location: submissions.php');
+    header('Location: submissions');
     exit;
 }
 
 $id = (int)($_POST['id'] ?? 0);
 if (!$id) {
-    header('Location: submissions.php');
+    header('Location: submissions');
     exit;
 }
 
@@ -32,7 +32,7 @@ $cert = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (!$cert || empty($cert['show_certificate'])) {
     $_SESSION['flash_error'] = 'Certificate is not enabled for this submission.';
-    header('Location: edit-submission.php?id=' . $id);
+    header('Location: edit-submission?id=' . $id);
     exit;
 }
 
@@ -45,7 +45,7 @@ foreach ($layoutRows as $lr) {
 
 if (empty($layouts)) {
     $_SESSION['flash_error'] = 'No certificate layouts configured. Please build layouts first.';
-    header('Location: edit-submission.php?id=' . $id);
+    header('Location: edit-submission?id=' . $id);
     exit;
 }
 
@@ -66,7 +66,7 @@ foreach (['training', 'participation', 'internship'] as $type) {
 
 if (empty($attachments)) {
     $_SESSION['flash_error'] = 'Could not generate any certificate PDFs.';
-    header('Location: edit-submission.php?id=' . $id);
+    header('Location: edit-submission?id=' . $id);
     exit;
 }
 
@@ -204,5 +204,5 @@ try {
     $_SESSION['flash_error'] = 'Error generating certificates: ' . htmlspecialchars($e->getMessage(), ENT_QUOTES);
 }
 
-header('Location: edit-submission.php?id=' . $id);
+header('Location: edit-submission?id=' . $id);
 exit;

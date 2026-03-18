@@ -5,7 +5,7 @@ require_once __DIR__ . '/includes/helpers.php';
 require_once __DIR__ . '/includes/mailer.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('Location: index.php');
+    header('Location: /');
     exit;
 }
 
@@ -59,7 +59,7 @@ $allowedYears = ['first_year', 'second_year', 'third_year', 'fourth_year', 'grad
 $year = in_array($year, $allowedYears) ? $year : null;
 
 if (!empty($errors)) {
-    header('Location: index.php?error=' . urlencode(implode(' | ', $errors)));
+    header('Location: /?error=' . urlencode(implode(' | ', $errors)));
     exit;
 }
 
@@ -116,11 +116,11 @@ try {
         $emailBody
     );
 
-    header('Location: index.php?submitted=1');
+    header('Location: /?submitted=1');
     exit;
 
 } catch (Exception $e) {
     error_log('Form submission error: ' . $e->getMessage());
-    header('Location: index.php?error=' . urlencode('A server error occurred. Please try again later.'));
+    header('Location: /?error=' . urlencode('A server error occurred. Please try again later.'));
     exit;
 }

@@ -61,7 +61,7 @@ $typeOverrides = [
 // Which fields are active per certificate type
 $typeFields = [
     'training'      => ['name', 'description', 'date'],
-    'participation' => ['name'],
+    'participation' => ['name', 'description'],
     'internship'    => ['name', 'description', 'date'],
 ];
 
@@ -764,7 +764,7 @@ document.getElementById('saveBtn').addEventListener('click', async function() {
     this.innerHTML = '<span class="spinner-border spinner-border-sm me-1"></span>Saving…';
 
     try {
-        const res  = await fetch('<?= BASE_URL ?>/admin/save-certificate-layout.php', {
+        const res  = await fetch('<?= BASE_URL ?>/admin/save-certificate-layout', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ type: curType, layout: activeLayout }),

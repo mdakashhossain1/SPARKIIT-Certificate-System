@@ -21,7 +21,7 @@ foreach ([
 
 $id = (int) ($_GET['id'] ?? 0);
 if (!$id) {
-    header('Location: submissions.php');
+    header('Location: submissions');
     exit;
 }
 
@@ -32,7 +32,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (!$row) {
     $_SESSION['flash_error'] = 'Submission not found.';
-    header('Location: submissions.php');
+    header('Location: submissions');
     exit;
 }
 
@@ -396,7 +396,7 @@ $months = ['January','February','March','April','May','June',
             <strong><?= e($row['email']) ?></strong>
           </p>
         </div>
-        <form method="POST" action="send-certificate-email.php"
+        <form method="POST" action="send-certificate-email"
               onsubmit="return confirm('Send all certificates to <?= e(addslashes($row['email'])) ?>?');">
           <input type="hidden" name="id" value="<?= $id ?>">
           <button type="submit" class="btn btn-purple fw-semibold"

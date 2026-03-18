@@ -305,7 +305,7 @@ body {
 <body>
 
 <div class="gf-page">
-  <form id="enrollmentForm" action="submit-form.php" method="POST" novalidate>
+  <form id="enrollmentForm" action="submit-form" method="POST" novalidate>
 
     <?php if ($success): ?>
     <div class="gf-success">

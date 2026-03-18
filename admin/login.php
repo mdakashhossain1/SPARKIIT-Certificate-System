@@ -10,7 +10,7 @@ if (session_status() === PHP_SESSION_NONE) session_start();
 
 // Already logged in
 if (!empty($_SESSION['admin_id'])) {
-    header('Location: dashboard.php');
+    header('Location: dashboard');
     exit;
 }
 
@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = 'Please enter a valid email address.';
     } else {
         if (adminLogin($email, $password)) {
-            header('Location: dashboard.php');
+            header('Location: dashboard');
             exit;
         } else {
             $error = 'Invalid email or password. Please try again.';

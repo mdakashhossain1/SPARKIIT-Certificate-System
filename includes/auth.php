@@ -4,7 +4,7 @@ function requireAdmin(): void {
         session_start();
     }
     if (empty($_SESSION['admin_id'])) {
-        header('Location: ' . getAdminBaseUrl() . '/login.php');
+        header('Location: ' . getAdminBaseUrl() . '/login');
         exit;
     }
 }

@@ -22,17 +22,17 @@ function isActive(string $file, string $currentFile): string {
   <!-- Navigation -->
   <ul class="nav flex-column p-3 gap-1 flex-grow-1">
     <li class="nav-item">
-      <a href="<?= BASE_URL ?>/admin/dashboard.php" class="nav-link d-flex align-items-center gap-2 rounded px-3 py-2 text-white <?= isActive('dashboard.php', $currentFile) ?>" style="<?= isActive('dashboard.php', $currentFile) ? 'background:rgba(255,255,255,0.15);' : '' ?>">
+      <a href="<?= BASE_URL ?>/admin/dashboard" class="nav-link d-flex align-items-center gap-2 rounded px-3 py-2 text-white <?= isActive('dashboard.php', $currentFile) ?>" style="<?= isActive('dashboard.php', $currentFile) ? 'background:rgba(255,255,255,0.15);' : '' ?>">
         <i class="bi bi-speedometer2"></i> Dashboard
       </a>
     </li>
     <li class="nav-item">
-      <a href="<?= BASE_URL ?>/admin/certificates/submissions.php" class="nav-link d-flex align-items-center gap-2 rounded px-3 py-2 text-white <?= isActive('submissions.php', $currentFile) ?>" style="<?= isActive('submissions.php', $currentFile) ? 'background:rgba(255,255,255,0.15);' : '' ?>">
+      <a href="<?= BASE_URL ?>/admin/certificates/submissions" class="nav-link d-flex align-items-center gap-2 rounded px-3 py-2 text-white <?= isActive('submissions.php', $currentFile) ?>" style="<?= isActive('submissions.php', $currentFile) ? 'background:rgba(255,255,255,0.15);' : '' ?>">
         <i class="bi bi-people-fill"></i> Submissions
       </a>
     </li>
     <li class="nav-item">
-      <a href="<?= BASE_URL ?>/admin/certificate-builder.php" class="nav-link d-flex align-items-center gap-2 rounded px-3 py-2 text-white <?= isActive('certificate-builder.php', $currentFile) ?>" style="<?= isActive('certificate-builder.php', $currentFile) ? 'background:rgba(255,255,255,0.15);' : '' ?>">
+      <a href="<?= BASE_URL ?>/admin/certificate-builder" class="nav-link d-flex align-items-center gap-2 rounded px-3 py-2 text-white <?= isActive('certificate-builder.php', $currentFile) ?>" style="<?= isActive('certificate-builder.php', $currentFile) ? 'background:rgba(255,255,255,0.15);' : '' ?>">
         <i class="bi bi-layout-text-window-reverse"></i> Cert Builder
       </a>
     </li>
@@ -46,7 +46,7 @@ function isActive(string $file, string $currentFile): string {
         <i class="bi bi-person-circle me-1"></i>
         <small><?= e($_SESSION['admin_email'] ?? 'Admin') ?></small>
       </div>
-      <a href="<?= BASE_URL ?>/admin/logout.php" class="btn btn-sm btn-outline-light py-0 px-2" title="Logout">
+      <a href="<?= BASE_URL ?>/admin/logout" class="btn btn-sm btn-outline-light py-0 px-2" title="Logout">
         <i class="bi bi-box-arrow-right"></i>
       </a>
     </div>

@@ -1,8 +1,5 @@
 <?php
-// Load helper functions (e(), replaceTokens, etc.) for all pages
-require_once __DIR__ . '/../includes/helpers.php';
-
-// Load .env file into $_ENV
+// Load .env file into $_ENV FIRST — must run before database.php constants are defined
 (function () {
     $envFile = dirname(__DIR__) . '/.env';
     if (!is_file($envFile)) return;
@@ -15,6 +12,9 @@ require_once __DIR__ . '/../includes/helpers.php';
         putenv("$key=$value");
     }
 })();
+
+// Load helper functions AFTER .env is parsed so DB constants pick up correct values
+require_once __DIR__ . '/../includes/helpers.php';
 
 define('APP_NAME', $_ENV['APP_NAME'] ?? 'SPARKIIT Certificate System');
 define('ORG_NAME', $_ENV['ORG_NAME'] ?? 'SPARKIIT');

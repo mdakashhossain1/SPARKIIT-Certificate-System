@@ -253,7 +253,7 @@ unset($_SESSION['flash_success'], $_SESSION['flash_error']);
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-        <form method="POST" action="delete-submission.php" id="deleteForm">
+        <form method="POST" action="delete-submission" id="deleteForm">
           <input type="hidden" name="id" id="delete_id">
           <button type="submit" class="btn btn-danger">
             <i class="bi bi-trash-fill me-1"></i> Yes, Delete

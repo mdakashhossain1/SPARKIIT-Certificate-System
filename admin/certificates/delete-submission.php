@@ -6,14 +6,14 @@ require_once dirname(__DIR__, 2) . '/includes/auth.php';
 requireAdmin();
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('Location: submissions.php');
+    header('Location: submissions');
     exit;
 }
 
 $id = (int) ($_POST['id'] ?? 0);
 if (!$id) {
     $_SESSION['flash_error'] = 'Invalid submission ID.';
-    header('Location: submissions.php');
+    header('Location: submissions');
     exit;
 }
 
@@ -26,5 +26,5 @@ try {
     $_SESSION['flash_error'] = 'Failed to delete submission. Please try again.';
 }
 
-header('Location: submissions.php');
+header('Location: submissions');
 exit;
