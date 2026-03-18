@@ -7,3 +7,4 @@ uploads/certificates/*
 !uploads/certificates/.gitkeep
 .env
 .zip
+.claude
