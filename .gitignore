@@ -6,3 +6,4 @@ uploads/certificates/*
 !uploads/signatures/.gitkeep
 !uploads/certificates/.gitkeep
 .env
+.zip

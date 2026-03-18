@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(ls c:/xampp_8.2/htdocs/sparkiit-certifcate/*.php)"
+      "Bash(ls c:/xampp_8.2/htdocs/sparkiit-certifcate/*.php)",
+      "Bash(find c:/xampp_8.2/htdocs/sparkiit-certifcate -name *.php -not -path */vendor/*)",
+      "Bash(find c:/xampp_8.2/htdocs/sparkiit-certifcate -name *.html -o -name *.htm)"
     ]
   }
 }

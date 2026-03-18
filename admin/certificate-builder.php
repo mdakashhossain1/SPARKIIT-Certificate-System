@@ -54,9 +54,20 @@ $typeImages = [
 // Per-type overrides: only the keys that differ from $defaults
 $typeOverrides = [
     'training'      => ['name' => ['fontFamily' => 'Kelvinch', 'fontWeight' => 'bold']],
-    'participation' => ['name' => ['fontFamily' => 'Pinyon Script', 'fontSize' => 36, 'fontWeight' => 'normal']],
+    'participation' => [
+        'name'        => ['fontFamily' => 'Pinyon Script', 'fontSize' => 36, 'fontWeight' => 'normal'],
+        'description' => ['text' => 'This is to certify that {name} has successfully participated in {program_name}.'],
+    ],
     'internship'    => ['name' => ['fontFamily' => 'Kelvinch', 'fontWeight' => 'bold']],
 ];
+
+// One-time migration: add description to saved participation layout if missing
+if (!empty($existingLayouts['participation']) && !isset($existingLayouts['participation']['description'])) {
+    $descDefault = array_merge($defaults['description'], $typeOverrides['participation']['description']);
+    $existingLayouts['participation']['description'] = $descDefault;
+    $db->prepare("UPDATE certificate_layouts SET layout_json = ? WHERE type = 'participation'")
+       ->execute([json_encode($existingLayouts['participation'])]);
+}
 
 // Which fields are active per certificate type
 $typeFields = [
