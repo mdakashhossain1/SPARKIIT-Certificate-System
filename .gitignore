@@ -1,0 +1,8 @@
+vendor/
+uploads/backgrounds/*
+uploads/signatures/*
+uploads/certificates/*
+!uploads/backgrounds/.gitkeep
+!uploads/signatures/.gitkeep
+!uploads/certificates/.gitkeep
+.env
