@@ -67,6 +67,10 @@ unset($_SESSION['flash_success'], $_SESSION['flash_error']);
         <h4 class="mb-0 fw-bold"><i class="bi bi-people-fill me-2 text-primary"></i>Form Submissions</h4>
         <p class="text-muted mb-0 small"><?= $totalRows ?> total record(s)</p>
       </div>
+      <a href="export-csv.php<?= $search !== '' ? '?search=' . urlencode($search) : '' ?>"
+         class="btn btn-success">
+        <i class="bi bi-file-earmark-spreadsheet me-1"></i>Export CSV
+      </a>
     </div>
 
     <?php if ($flashSuccess): ?>

@@ -26,7 +26,7 @@ if (!in_array($type, $valid, true) || !is_array($layout)) {
 // Allowed fields per type (participation only uses name)
 $type_fields = [
     'training'      => ['name', 'description', 'date'],
-    'participation' => ['name'],
+    'participation' => ['name', 'description'],
     'internship'    => ['name', 'description', 'date'],
 ];
 $allowed_keys = ['label','text','left','top','width','fontSize','fontWeight','fontStyle','fontFamily','color','textAlign'];
