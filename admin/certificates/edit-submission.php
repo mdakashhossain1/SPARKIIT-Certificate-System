@@ -20,6 +20,9 @@ foreach ([
 }
 
 $id = (int) ($_GET['id'] ?? 0);
+$returnPage   = max(1, (int) ($_GET['page'] ?? 1));
+$returnSearch = trim($_GET['search'] ?? '');
+$returnUrl    = 'submissions.php?page=' . $returnPage . ($returnSearch !== '' ? '&search=' . urlencode($returnSearch) : '');
 if (!$id) {
     header('Location: submissions');
     exit;
@@ -144,7 +147,7 @@ $months = ['January','February','March','April','May','June',
   <main class="flex-grow-1 p-4" style="min-width:0;max-width:860px;">
 
     <div class="d-flex align-items-center gap-3 mb-4">
-      <a href="submissions.php" class="btn btn-outline-secondary btn-sm">
+      <a href="<?= $returnUrl ?>" class="btn btn-outline-secondary btn-sm">
         <i class="bi bi-arrow-left"></i> Back
       </a>
       <div>
@@ -381,7 +384,7 @@ $months = ['January','February','March','April','May','June',
         <button type="submit" class="btn btn-warning fw-semibold">
           <i class="bi bi-save-fill me-1"></i> Save Changes
         </button>
-        <a href="submissions.php" class="btn btn-outline-secondary">Cancel</a>
+        <a href="<?= $returnUrl ?>" class="btn btn-outline-secondary">Cancel</a>
       </div>
     </form>
 

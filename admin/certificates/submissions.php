@@ -183,7 +183,7 @@ unset($_SESSION['flash_success'], $_SESSION['flash_error']);
                       <i class="bi bi-eye"></i>
                     </button>
 
-                    <a href="edit-submission.php?id=<?= $row['id'] ?>"
+                    <a href="edit-submission.php?id=<?= $row['id'] ?>&page=<?= $page ?>&search=<?= urlencode($search) ?>"
                        class="btn btn-sm btn-outline-warning ms-1" title="Edit Submission">
                       <i class="bi bi-pencil-fill"></i>
                     </a>
